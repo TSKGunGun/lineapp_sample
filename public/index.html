@@ -3,37 +3,94 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LIFF Starter</title>
+        <title>TskGunGun LineApp Sample</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
+
     </head>
-    <body>
-        <div id="liffAppContent">
-            <!-- ACTION BUTTONS -->
-            <div class="buttonGroup">
-                <div class="buttonRow">
-                    <button id="openWindowButton">Open External Window</button>
-                    <button id="closeWindowButton">Close LIFF App</button>
+    <body class="px-3">
+        <header>
+            <div class="container bg-success">
+                <h1 class="text-center text-white">LINEAPP SAMPLE</h1>
+            </div>
+        </header>
+        <div id="KintoneSample">
+            <div class=" container bg-warning pb-3 px-0">
+                <h3 class="text-center">Kintone RecordAccess Sample</h3>
+                <div class="row mb-3 mx-0">
+                    <div class="col-md-4 bg-dark">
+                        <h4 class="text-center align-middle text-white">Record Create</h4>
+                    </div>
+                    <div class="col-md-8 bg-white">
+                        <form class="my-3">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">MailAddress</label>
+                                <input type="email" name="email" id="email">
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="buttonRow">
-                    <button id="scanQrCodeButton">Open QR Code Reader</button>
-                    <button id="sendMessageButton">Send Message</button>
-                </div>
-                <div class="buttonRow">
-                    <button id="getAccessToken">Get Access Token</button>
-                    <button id="getProfileButton">Get Profile</button>
-                </div>
-                <div class="buttonRow">
-                    <button id="shareTargetPicker">Open Share Target Picker</button>
+                <div class="row mb-3 mx-0">
+                    <div class="col-md-4 bg-dark">
+                        <h4 class="text-center text-white">Record Read</h4>
+                    </div>
+                    <div class="col-md-8 bg-white p-0">
+                        <table class="table table-striped mb-0">
+                            <tr class="table-primary">
+                                <th>name</th>
+                                <th>maidladdress</th>
+                                <th>sex</th>
+                                <th>address</th>
+                                <th>note</th>
+                            </tr>
+                            <tr>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div id="liffAppContent">
+            <div class="container text-center bg-success px-0">
+                <h3 class="py-3 text-white">LINE Original LIFFAppContents</h3>
+                <div class="row py-3 bg-light mx-0">
+                    <div class="col">
+                        <button class="btn btn-primary" id="openWindowButton">Open External Window</button>
+                        <button class="btn btn-primary" id="closeWindowButton">Close LIFF App</button>
+                        <button class="btn btn-primary" id="scanQrCodeButton">Open QR Code Reader</button>
+                        <button class="btn btn-primary" id="sendMessageButton">Send Message</button>
+                        <button class="btn btn-primary" id="getAccessToken">Get Access Token</button>
+                        <button class="btn btn-primary" id="getProfileButton">Get Profile</button>
+                        <button class="btn btn-primary" id="shareTargetPicker">Open Share Target Picker</button>
+                    </div>
+                </div>
+
+            </div>
             <div id="shareTargetPickerMessage"></div>
+            
             <!-- ACCESS TOKEN DATA -->
             <div id="accessTokenData" class="hidden textLeft">
                 <h2>Access Token</h2>
                 <a href="#" onclick="toggleAccessToken()">Close Access Token</a>
-                <table>
+                <table class="table table-striped">
                     <tr>
-                        <th>accessToken</th>
+                        <th class="table-dark">accessToken</th>
                         <td id="accessTokenField"></td>
                     </tr>
                 </table>
@@ -42,9 +99,9 @@
             <div id="scanQr" class="hidden textLeft">
                 <h2>QR Code reader</h2>
                 <a href="#" onclick="toggleQrCodeReader()">Close QR Code Reader Result</a>
-                <table>
+                <table class="table">
                     <tr>
-                        <th>scanCode Result</th>
+                        <th class="table-dark">scanCode Result</th>
                         <td id="scanQrField"></td>
                     </tr>
                 </table>
@@ -55,55 +112,57 @@
                 <a href="#" onclick="toggleProfileData()">Close Profile</a>
                 <div id="profilePictureDiv">
                 </div>
-                <table>
+                <table class="table table-striped">
                     <tr>
-                        <th>userId</th>
+                        <th class="table-dark">userId</th>
                         <td id="userIdProfileField"></td>
                     </tr>
                     <tr>
-                        <th>displayName</th>
+                        <th class="table-dark">displayName</th>
                         <td id="displayNameField"></td>
                     </tr>
                     <tr>
-                        <th>statusMessage</th>
+                        <th class="table-dark">statusMessage</th>
                         <td id="statusMessageField"></td>
                     </tr>
                 </table>
             </div>
             <!-- LIFF DATA -->
             <div id="liffData">
-                <h2 id="liffDataHeader" class="textLeft">LIFF Data</h2>
-                <table>
-                    <tr>
-                        <th>OS</th>
-                        <td id="deviceOS" class="textLeft"></td>
-                    </tr>
-                    <tr>
-                        <th>Language</th>
-                        <td id="browserLanguage" class="textLeft"></td>
-                    </tr>
-                    <tr>
-                        <th>LIFF SDK Version</th>
-                        <td id="sdkVersion" class="textLeft"></td>
-                    </tr>
-                    <tr>
-                        <th>LINE Version</th>
-                        <td id="lineVersion" class="textLeft"></td>
-                    </tr>
-                    <tr>
-                        <th>isInClient</th>
-                        <td id="isInClient" class="textLeft"></td>
-                    </tr>
-                    <tr>
-                        <th>isLoggedIn</th>
-                        <td id="isLoggedIn" class="textLeft"></td>
-                    </tr>
-                </table>
+                <div class="container">
+                    <h2 id="liffDataHeader" class="text-center">LIFF Data</h2>
+                    <table class="table table-light table-striped">
+                        <tr>
+                            <th class="table-dark">OS</th>
+                            <td id="deviceOS" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-dark">Language</th>
+                            <td id="browserLanguage" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-dark">LIFF SDK Version</th>
+                            <td id="sdkVersion" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-dark">LINE Version</th>
+                            <td id="lineVersion" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-dark">isInClient</th>
+                            <td id="isInClient" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-dark">isLoggedIn</th>
+                            <td id="isLoggedIn" class="textLeft"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <!-- LOGIN LOGOUT BUTTONS -->
             <div class="buttonGroup">
-                <button id="liffLoginButton">Log in</button>
-                <button id="liffLogoutButton">Log out</button>
+                <button class="btn btn-info" id="liffLoginButton">Log in</button>
+                <button class="btn btn-info" id="liffLogoutButton">Log out</button>
             </div>
             <div id="statusMessage">
                 <div id="isInClientMessage"></div>
@@ -137,8 +196,12 @@
         <!-- NODE.JS LIFF ID ERROR -->
         <div id="nodeLiffIdErrorMessage" class="hidden">
             <p>Unable to receive the LIFF ID as an environment variable.</p>
-        </div>
+        </div> 
+        
         <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
         <script src="liff-starter.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
     </body>
 </html>
